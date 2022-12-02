@@ -28,4 +28,42 @@ class Student
     all.select { |student| student.gender == "male"}
   end
 
+  def self.students_by_grade_and_name
+    data = {}
+    all.each do |student|
+      data[student.grade] = data[student.grade].nil? ? [] : data[student.grade]st
+      data[student.grade] << student.name
+    end
+    data
+  end
+
+  def self.get_students_name_by_grade(grade)
+    all.select { |student| student.student_rating == grade}.map {|student| student.name}
+  end
+
+  def passed?
+    mark >= 45
+  end
+
+  def failed?
+    !passed?
+  end
+
+  def grade
+    case mark
+    when 90..100
+      "A"
+    when 80..89
+      "B"
+    when 70..79
+      "C "
+    when 60..69
+      "D"
+    when 45..59
+      "E"
+    else
+      "Fail"
+    end
+  end
+
 end
