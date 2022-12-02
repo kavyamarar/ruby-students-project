@@ -23,9 +23,30 @@ class Base
   def create_course
     @robotics = Course.create("robotics")
     @information_technoloy = Course.create("information_technoloy")
-    @cyber_security = Course.create("cyber_security")
-    @artificial_intellegence = Course.create("artificial_intellegence")
-    @cloud_computing = Course.create("cloud_computing")
+    
+  end
+
+  def create_college
+    @lbs = College.create("lbs")
+    @tkm =College.create("tkm")
+  end
+
+  def add_student_to_course
+    @robotics.add_students(@kavya)
+    @robotics.add_students(@snehith)
+    @robotics.add_students(@nandu)
+    @robotics.add_students(@nimitha)
+    @robotics.add_students(@shadil)
+    @information_technoloy.add_students(@sandra)
+    @information_technoloy.add_students(@nabhan)
+    @information_technoloy.add_students(@ansaf)
+    @information_technoloy.add_students(@karthika)
+    @information_technoloy.add_students(@sandra)
+  end
+
+  def add_course_to_college
+    @lbs.add_course(@robotics)
+    @tkm.add_course(@information_technoloy)
   end
 
 end

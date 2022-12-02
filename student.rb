@@ -20,8 +20,12 @@ class Student
     @@students
   end
 
-  def self.list_female_students
+  def self.female_students
     all.select { |student| student.gender == "female"}
+  end
+
+  def self.male_students
+    all.select { |student| student.gender == "male"}
   end
 
 end
